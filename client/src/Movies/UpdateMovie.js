@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
+import axios from "axios";
 
 const initialState = {
     title: "",
@@ -8,9 +9,28 @@ const initialState = {
     actors: ""
 }
 
-const UpdateMovie = () => {
+const UpdateMovie = (props) => {
     const [movie, setMovie] = useState(initialState);
     const {id} = useParams();
+    const [movies, setMovies] = useState([])
+
+    useEffect(()=>{
+        
+        axios
+        .get("http://localhost:5000/api/movies")
+        .then(res => {
+            setMovies(res.data)
+        })
+            
+        .catch(err => console.log(err.response));
+    }, [])
+
+    useEffect(()=>{
+        const movieToUpdate = movies.find(movie => `${movie.id}` === id)
+        if (movieToUpdate){
+            setMovie(movieToUpdate)
+        }
+    }, [movies, id])
 
     const handleChanges = e => {
         let value = e.target.value;
@@ -37,7 +57,7 @@ const UpdateMovie = () => {
            </div>
             <div className="updateB">
                 <label className="updateLabel" htmlFor="actors">Actors: </label>
-                <input className="updateInput" id="actors" type="text" onChange={handleChanges} name="actors" value={movie.actors} />
+                <input className="updateInput" id="actors" type="text" onChange={handleChanges} name="actors" value={movie.stars} />
             </div>
             
             

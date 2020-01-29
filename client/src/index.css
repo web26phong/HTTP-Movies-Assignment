@@ -31,17 +31,17 @@ body {
 }
 
 .updateB {
-  width: 100%;
+  width: 20%;
   display: flex;
 }
 
 .updateLabel {
-  width: 5%;
+  width: 50%;
 }
 
-/* .updateInput{
-
-} */
+.updateInput{
+  width: 100%;
+}
 
 .movie-director {
   padding: 4px 0;
