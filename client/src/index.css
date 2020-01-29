@@ -16,6 +16,33 @@ body {
   margin: 1rem auto;
 }
 
+.update-movie-card {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background-color: #fff;
+  border: 0;
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.24);
+  padding: 1rem;
+  cursor: pointer;
+  position: relative;
+  margin: 1rem auto;
+}
+
+.updateB {
+  width: 100%;
+  display: flex;
+}
+
+.updateLabel {
+  width: 5%;
+}
+
+/* .updateInput{
+
+} */
+
 .movie-director {
   padding: 4px 0;
   font-size: 0.8rem;
@@ -74,4 +101,17 @@ body {
 .movie-warning {
   color: red;
   text-align: center;
+}
+
+.edit-button {
+  position: absolute;
+  top: 25px;
+  right: 90px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+}
+.edit-button:hover {
+  background-color: green;
+  color: white;
 }
