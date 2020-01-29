@@ -6,14 +6,14 @@ const initialState = {
     title: "",
     director: "",
     metascore: "",
-    actors: ""
+    stars: ""
 }
 
 const UpdateMovie = (props) => {
     const [movie, setMovie] = useState(initialState);
     const {id} = useParams();
     const [movies, setMovies] = useState([])
-
+    
     useEffect(()=>{
         
         axios
@@ -28,7 +28,12 @@ const UpdateMovie = (props) => {
     useEffect(()=>{
         const movieToUpdate = movies.find(movie => `${movie.id}` === id)
         if (movieToUpdate){
-            setMovie(movieToUpdate)
+            setMovie({
+                title: movieToUpdate.title,
+                director: movieToUpdate.director,
+                metascore: movieToUpdate.metascore,
+                stars: movieToUpdate.stars.toString()
+            })
         }
     }, [movies, id])
 
