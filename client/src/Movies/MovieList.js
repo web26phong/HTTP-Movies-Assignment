@@ -20,7 +20,7 @@ export default class MovieList extends Component {
   render() {
     return (
       <div className="movie-list">
-        {this.state.movies.length === 0 && (<div className="no-movies">NO MOVIES</div>)}
+        {this.state.movies.length === 0 && (<div className="no-movies"><p className="noP">There are currely no available movies. Add one using the "add movie" button above.</p></div>)}
         {this.state.movies.map(movie => (
           <MovieDetails key={movie.id} movie={movie} />
         ))}

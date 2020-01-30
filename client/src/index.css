@@ -6,7 +6,23 @@ body {
 }
 
 .no-movies {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border: 0;
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.24);
+  padding: 1rem;
+  position: relative;
+  margin: 1rem auto;
   text-align: center;
+}
+
+.noP{
+  border: solid red 1px;
+  position: absolute;
+  top: -10px;
 }
 
 .movie-card {
@@ -95,6 +111,7 @@ body {
 .save-button:hover {
   background-color: green;
   color: white;
+  cursor: pointer;
 }
 
 .home-button {
@@ -118,17 +135,37 @@ body {
 .edit-button:hover {
   background-color: green;
   color: white;
+  cursor: pointer;
 }
 
 .delete-button {
   position: absolute;
-  top: 200px;
+  top: 65px;
   right: 25px;
+  color: rgb(192, 192, 192);
   border: 1px solid grey;
   padding: 5px 10px;
-  background-color: rgb(212, 0, 0);
+  background-color: rgb(128, 0, 0);
 }
 .delete-button:hover {
-  background-color: red;
+  background-color: rgb(255, 0, 0);
   color: white;
+  cursor: pointer;
+}
+
+.add-button {
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  top: 75px;
+  right: 45%;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: rgb(123, 195, 240);
+}
+.add-button:hover {
+  background-color: rgb(132, 220, 255);
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
 }
