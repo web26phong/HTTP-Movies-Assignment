@@ -5,6 +5,10 @@ body {
   background-color: #f2f2f2;
 }
 
+.no-movies {
+  text-align: center;
+}
+
 .movie-card {
   background-color: #fff;
   border: 0;
