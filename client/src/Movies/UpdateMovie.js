@@ -13,7 +13,7 @@ const UpdateMovie = (props) => {
     const [movie, setMovie] = useState(initialState);
     const {id} = useParams();
     const [movies, setMovies] = useState([])
-    
+
     useEffect(()=>{
         
         axios
@@ -29,9 +29,7 @@ const UpdateMovie = (props) => {
         const movieToUpdate = movies.find(movie => `${movie.id}` === id)
         if (movieToUpdate){
             setMovie({
-                title: movieToUpdate.title,
-                director: movieToUpdate.director,
-                metascore: movieToUpdate.metascore,
+                ...movieToUpdate,
                 stars: movieToUpdate.stars.toString()
             })
         }
@@ -43,6 +41,22 @@ const UpdateMovie = (props) => {
         setMovie({
             ...movie,
             [e.target.name]: value
+        })
+    }
+
+    const handleUpdate = e => {
+        e.preventDefault();
+        axios
+        .put(`http://localhost:5000/api/movies/${id}`, {...movie, stars: movie.stars.split(",")})
+        .then(res => {
+            setMovie({
+                ...res.data,
+                stars: res.data.stars.toString()
+            })
+            props.history.push("/")
+        })
+        .catch(err => {
+            console.log(err)
         })
     }
 
@@ -62,11 +76,11 @@ const UpdateMovie = (props) => {
            </div>
             <div className="updateB">
                 <label className="updateLabel" htmlFor="actors">Actors: </label>
-                <input className="updateInput" id="actors" type="text" onChange={handleChanges} name="actors" value={movie.stars} />
+                <input className="updateInput" id="actors" type="text" onChange={handleChanges} name="stars" value={movie.stars} />
             </div>
             
             
-            <div><button>Update</button></div>
+            <div><button onClick={handleUpdate}>Update</button></div>
         </div>
     )
 }
