@@ -41,11 +41,12 @@ export default class Movie extends React.Component {
     .delete(`http://localhost:5000/api/movies/${this.props.match.params.id}`)
     .then(res => {
       console.log(`"${this.state.movie.title}"`,"deleted.")
+      this.props.history.push(`/`);
     })
     .catch(err => {
       console.log(err);
     })
-    this.props.history.push(`/`);
+    
   }
 
   render() {
