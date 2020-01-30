@@ -6,22 +6,21 @@ export default class MovieList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: []
+      movies: [],
+      isMounted: false
     };
   }
 
   componentDidMount() {
+    this.setState({...this.state, isMounted: true})
     axios
       .get("http://localhost:5000/api/movies")
       .then(res => this.setState({ movies: res.data }))
       .catch(err => console.log(err.response));
   }
 
-  componentDidUpdate(){
-    axios
-      .get("http://localhost:5000/api/movies")
-      .then(res => this.setState({ movies: res.data }))
-      .catch(err => console.log(err.response));
+  componentWillUnmount(){
+    this.setState({...this.state, isMounted: false})
   }
 
   render() {
