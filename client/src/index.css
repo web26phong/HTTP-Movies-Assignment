@@ -115,3 +115,16 @@ body {
   background-color: green;
   color: white;
 }
+
+.delete-button {
+  position: absolute;
+  top: 200px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: rgb(212, 0, 0);
+}
+.delete-button:hover {
+  background-color: red;
+  color: white;
+}
